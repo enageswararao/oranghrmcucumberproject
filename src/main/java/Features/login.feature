@@ -6,4 +6,4 @@ Given user is already on Login page
 When user enter username
 And user enter password
 And user click Login button
-Then verify profile icon1
+Then verify profile icon
