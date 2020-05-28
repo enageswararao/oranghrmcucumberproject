@@ -14,24 +14,7 @@ public class BasePage {
 
 	}
 
-	// ***** TextBox
-	public void inputText(By by, String input) {
-
-		driver.findElement(by).sendKeys(input);
-	}
-
-	// ** Click
-
-	public void click(By by) {
-
-		driver.findElement(by).click();
-	}
-
-	public void resetvalue(By by) {
-
-		driver.findElement(by).clear();
-	}
-
+	 
 	public String getText(By by) {
 
 		return driver.findElement(by).getText();

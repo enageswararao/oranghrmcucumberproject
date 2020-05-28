@@ -1,10 +1,15 @@
 package com.hrmapp.pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+ 
 
 public class LoginPage extends BasePage{
 	
+	final static Logger logger = Logger.getLogger(LoginPage.class);
 	//****************************************************************************************
 	// Properties or WebLocator for Login page
 	//****************************************************************************************
@@ -19,7 +24,7 @@ public class LoginPage extends BasePage{
 	
 	public LoginPage(WebDriver driver ) {  
 		super(driver);
-	 System.out.println("Login page constructor is called................");
+		logger.info("Login page constructor is called  ");	
 		this.driver=driver;
 	}
 
@@ -27,21 +32,36 @@ public class LoginPage extends BasePage{
 	// Login page actions or methods 
 	//****************************************************************************************
 	
+	public WebElement getUserNameWebElement() {
+		return driver.findElement(userName);
+	}
+	
+	
+	public WebElement getPasswordWebElement() {
+		return driver.findElement(password);
+	}
+	
+	
+	public WebElement getloginWebElement() {
+		return driver.findElement(login);
+	}
+	
+	
 	public void loginSuccess(){
 		
  		driver.findElement(userName).sendKeys("Admin");
 	    driver.findElement(password).sendKeys("admin123");
-	    driver.findElement(login).click();      
+	    getloginWebElement().click();     
+		logger.info("Click on Login button  ");	
 			 
 	}
+ 
+ 
 	
-	public ProfilePage clickOnLogin(By by) {
-		
-		     click(by);
-		     
-		return new ProfilePage(driver);
-		
-	}
+	
+ 
+
+  
 	 
 	
 }
